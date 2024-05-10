@@ -33,6 +33,10 @@ import mongoose from "mongoose"
         type: String,
         
     },
+    slug: {
+      type: String,
+      lowercase: true,
+    },
   },
   { timestamps: true }
 );

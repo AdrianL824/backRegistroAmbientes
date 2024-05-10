@@ -1,4 +1,5 @@
 import booksModel from "../models/bookModel.js";
+import slugify from "slugify";
 export const registerBookController = async (req, res) => {
     try {
       const { name, capacity, block, webaddress, name_teacher, date, day, schedule } = req.body;
@@ -18,7 +19,7 @@ export const registerBookController = async (req, res) => {
       }*/}
       //save
       const book = await new booksModel({
-        name, capacity, block, webaddress, name_teacher, date, day, schedule
+        name, capacity, block, webaddress, name_teacher, date, day, schedule, slug: slugify(name),
       }).save();
   
       res.status(200).send({
@@ -53,3 +54,24 @@ export const registerBookController = async (req, res) => {
       });
     }
   };
+
+  //get single book
+  export const singleBookController = async (req, res) => {
+    try {
+      const book = await booksModel.find({ slug: req.params.slug });
+      res.status(200).send({
+        success: true,
+        message: "get single book",
+        book,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        error,
+        message: "Error getting single book",
+      });
+    }
+  };
+
+

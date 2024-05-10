@@ -7,16 +7,6 @@ export const registerSpaceController = async (req, res) => {
       if (!name) {
         return res.send({ error: "Name is Required" });
       }
-      {/*
-      if (!capacity) {
-        return res.send({ message: "capacity is Required" });
-      }
-      if (!block) {
-        return res.send({ message: "block is Required" });
-      }
-      if (!webaddress) {
-        return res.send({ message: "WebAddress is Required" });
-      }*/}
       //save
       const space = await new spacesModel({
         name, capacity, block, webaddress, slug: slugify(name),

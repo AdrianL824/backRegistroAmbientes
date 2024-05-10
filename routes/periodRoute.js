@@ -1,5 +1,5 @@
 import express from 'express'
-import {registerPeriodController,periodControlller,singlePeriodController} from '../controllers/periodController.js'
+import {registerPeriodController,periodControlller,singlePeriodController,updatePeriodController} from '../controllers/periodController.js'
 
 
 //router object
@@ -10,7 +10,7 @@ const router = express.Router()
 router.post('/register',registerPeriodController)
 router.get('/period',periodControlller)
 router.get('/singleperiod/:slug', singlePeriodController);
-
+router.put('/periodupd/:id', updatePeriodController);
 
 
 export default router

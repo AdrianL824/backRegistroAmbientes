@@ -1,5 +1,6 @@
-import mongoose from "mongoose"
- const spaceSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+const spaceSchema = new mongoose.Schema(
+  {
     name: {
       type: String,
       required: true,
@@ -7,15 +8,18 @@ import mongoose from "mongoose"
     },
     capacity: {
       type: Number,
-      
+    },
+    minCapacity: {
+      type: Number,
+    },
+    maxCapacity: {
+      type: Number,
     },
     block: {
       type: String,
-      
     },
     webaddress: {
       type: String,
-      
     },
     slug: {
       type: String,
@@ -26,6 +30,3 @@ import mongoose from "mongoose"
 );
 
 export default mongoose.model("spaces", spaceSchema);
-
-
-

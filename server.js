@@ -6,6 +6,7 @@ import authRoute from './routes/authRoute.js'
 import spaceRoute from './routes/spaceRoute.js'
 import bookRoute from './routes/bookRoute.js'
 import cors from 'cors'
+import periodRoute from './routes/periodRoute.js'
 //configure env
 dotenv.config();
 
@@ -25,11 +26,12 @@ app.use(morgan("dev"));
 app.use('/api/auth/', authRoute)
 app.use('/api/space/', spaceRoute)
 app.use('/api/book/', bookRoute)
+app.use('/api/period/', periodRoute)
 
 //rest api
 app.get('/',(req,res) =>{
     res.send({
-        message: 'welcomer to backTIS app'
+        message: 'welcome to backTIS app'
 
     })
 } )

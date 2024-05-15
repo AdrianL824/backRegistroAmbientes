@@ -2,14 +2,14 @@ import periodsModel from "../models/periodModel.js";
 import slugify from "slugify";
 export const registerPeriodController = async (req, res) => {
     try {
-      const { name, date_i, date_f } = req.body;
+      const { name, date_i, date_f, role } = req.body;
       //validations
       if (!name) {
         return res.send({ error: "Name is Required" });
       }
       //save
       const period = await new periodsModel({
-        name, date_i, date_f, slug: slugify(name),
+        name, date_i, date_f, slug: slugify(name), role,
       }).save();
   
       res.status(200).send({
@@ -68,14 +68,14 @@ export const registerPeriodController = async (req, res) => {
   // update period
 export const updatePeriodController = async (req, res) => {
   try {
-    const { name, date_i, date_f } = req.body;
+    const { name, date_i, date_f, role } = req.body;
     const { id } = req.params;
     if (!name) {
       return res.status(400).send({ error: "Name is required" });
     }
     const updatedPeriod = await periodsModel.findByIdAndUpdate(
       id,
-      { name, date_i, date_f, slug: slugify(name) },
+      { name, date_i, date_f, slug: slugify(name) }, role,
       { new: true }
     );
     if (!updatedPeriod) {

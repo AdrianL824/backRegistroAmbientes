@@ -10,13 +10,16 @@ import mongoose from "mongoose"
       
     },
     date_f: {
-        type: String,
+        type: String
         
     },
     slug: {
       type: String,
       lowercase: true,
     },
+    role: {
+      type: String
+    }
   },
   { timestamps: true }
 );

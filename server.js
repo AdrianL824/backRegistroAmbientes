@@ -7,6 +7,7 @@ import spaceRoute from './routes/spaceRoute.js'
 import bookRoute from './routes/bookRoute.js'
 import cors from 'cors'
 import periodRoute from './routes/periodRoute.js'
+import DAUserRoute from './routes/DAUserRoute.js'
 //configure env
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use('/api/auth/', authRoute)
 app.use('/api/space/', spaceRoute)
 app.use('/api/book/', bookRoute)
 app.use('/api/period/', periodRoute)
+app.use('/api/user/', DAUserRoute)
 
 //rest api
 app.get('/',(req,res) =>{

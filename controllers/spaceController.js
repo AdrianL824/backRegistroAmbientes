@@ -2,19 +2,18 @@ import spacesModel from "../models/spaceModel.js";
 import slugify from "slugify";
 export const registerSpaceController = async (req, res) => {
   try {
-    const { name, capacity, minCapacity, maxCapacity, block, webaddress } =
-      req.body;
+    const { name, capacity, minCapacity, block, webaddress } = req.body;
     //validations
     if (!name) {
       return res.send({ error: "Name is Required" });
     }
-    if (
-      capacity < minCapacity ||
-      capacity > maxCapacity ||
-      maxCapacity < minCapacity
-    ) {
-      return res.send({ error: "Capacity have inconsistencies" });
-    }
+    // if (
+    //   capacity < minCapacity ||
+    //   capacity > maxCapacity ||
+    //   maxCapacity < minCapacity
+    // ) {
+    //   return res.send({ error: "Capacity have inconsistencies" });
+    // }
     {
       /*
       if (!capacity) {
@@ -32,7 +31,6 @@ export const registerSpaceController = async (req, res) => {
       name,
       capacity,
       minCapacity,
-      maxCapacity,
       block,
       webaddress,
       slug: slugify(name),

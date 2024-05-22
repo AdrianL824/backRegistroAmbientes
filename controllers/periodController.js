@@ -48,7 +48,7 @@ export const registerPeriodController = async (req, res) => {
   //get single period
   export const singlePeriodController = async (req, res) => {
     try {
-      const period = await periodsModel.find({ slug: req.params.slug });
+      const period = await periodsModel.find({ role: req.params.slug });
       res.status(200).send({
         success: true,
         message: "Get Single period Successfully",

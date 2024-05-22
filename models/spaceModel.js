@@ -12,9 +12,6 @@ const spaceSchema = new mongoose.Schema(
     minCapacity: {
       type: Number,
     },
-    maxCapacity: {
-      type: Number,
-    },
     block: {
       type: String,
     },

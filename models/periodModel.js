@@ -5,19 +5,11 @@ import mongoose from "mongoose"
       required: true,
       trim: true,
     },
-    date_p_i: {//son las fechas del periodo de que se puede reservar
-      type: String
-      
-    },
-    date_p_f: {
-      type: String
-      
-    },
-    date_r_i: {//son las fechas en que las aulas estan reservadas
+    date_i: {
       type: String,
       
     },
-    date_r_f: {
+    date_f: {
         type: String
         
     },

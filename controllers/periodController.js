@@ -75,7 +75,7 @@ export const updatePeriodController = async (req, res) => {
     }
     const updatedPeriod = await periodsModel.findByIdAndUpdate(
       id,
-      { name, date_i, date_f, slug: slugify(name) }, role,
+      { name, date_i, date_f, slug: slugify(name), role },
       { new: true }
     );
     if (!updatedPeriod) {

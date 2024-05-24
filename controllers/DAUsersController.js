@@ -64,3 +64,32 @@ export const registerDAUserController = async (req, res) => {
       });
     }
   };
+
+  // update DAUser
+  export const updateDAUserController = async (req, res) => {
+    try {
+      const { N_students } = req.body;
+      const { id } = req.params;
+
+      const updatedDAUser = await DAUserModel.findByIdAndUpdate(
+        id,
+        { N_students },
+        { new: true }
+      );
+      if (!updatedDAUser) {
+        return res.status(404).send({ success: false, message: "Students not found" });
+      }
+      res.status(200).send({
+        success: true,
+        message: "DAUser updated successfully",
+        period: updatedDAUser,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        error,
+        message: "Error while updating DAUser",
+      });
+    }
+  };

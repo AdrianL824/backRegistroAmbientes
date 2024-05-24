@@ -5,13 +5,21 @@ import mongoose from "mongoose"
       required: true,
       trim: true,
     },
-    date_i: {
+    date_r_i: {
       type: String,
       
     },
-    date_f: {
+    date_r_f: {
         type: String
         
+    },
+    date_e_i: {
+      type: String
+      
+    },
+    date_e_f: {
+      type: String
+      
     },
     slug: {
       type: String,

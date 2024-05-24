@@ -87,3 +87,52 @@ export const singleSpaceController = async (req, res) => {
     });
   }
 };
+
+// update Space
+export const updateSpaceController = async (req, res) => {
+  try {
+    const { name, capacity, minCapacity, block, webaddress } = req.body;
+    const { id } = req.params;
+
+    const updatedSpace = await spacesModel.findByIdAndUpdate(
+      id,
+      { name, capacity, minCapacity, block, webaddress },
+      { new: true }
+    );
+    if (!updatedSpace) {
+      return res.status(404).send({ success: false, message: "Space not found" });
+    }
+    res.status(200).send({
+      success: true,
+      message: "Space updated successfully",
+      period: updatedSpace,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while updating space",
+    });
+  }
+};
+
+//delete Space
+export const deleteSpaceController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await spacesModel.findByIdAndDelete(id);
+
+    res.status(200).send({
+      success: true,
+      message: "Space Deleted Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while deleting space",
+      error,
+    });
+  }
+};

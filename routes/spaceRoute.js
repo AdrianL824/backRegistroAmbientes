@@ -1,5 +1,5 @@
 import express from 'express'
-import {registerSpaceController,spaceControlller,singleSpaceController} from '../controllers/spaceController.js'
+import {registerSpaceController,spaceControlller,singleSpaceController, updateSpaceController, deleteSpaceController} from '../controllers/spaceController.js'
 
 
 //router object
@@ -10,7 +10,7 @@ const router = express.Router()
 router.post('/register',registerSpaceController)
 router.get('/spaces',spaceControlller)
 router.get("/singlespace/:slug", singleSpaceController);
-
-
+router.put('/spaceupd/:id', updateSpaceController);
+router.delete("/spacedel/:id", deleteSpaceController);
 
 export default router

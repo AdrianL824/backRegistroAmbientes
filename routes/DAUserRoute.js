@@ -1,5 +1,5 @@
 import express from 'express'
-import { registerDAUserController, singleDAUserController, DAUserControlller } from '../controllers/DAUsersController.js'
+import { registerDAUserController, singleDAUserController, DAUserControlller, updateDAUserController } from '../controllers/DAUsersController.js'
 //router object
 const router = express.Router()
 
@@ -8,6 +8,6 @@ const router = express.Router()
 router.post('/register',registerDAUserController)
 router.get('/user',DAUserControlller)
 router.get('/singleuser/:slug', singleDAUserController);
-
+router.put('/dauserupd/:id', updateDAUserController);
 
 export default router

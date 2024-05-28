@@ -1,6 +1,5 @@
 import express from 'express'
-import {registerBookController,bookControlller,singleBookController} from '../controllers/bookController.js'
-
+import {registerBookController,bookControlller,singleBookController, mostReservedRoomController, teacherWithMostResevations} from '../controllers/bookController.js'
 
 //router object
 const router = express.Router()
@@ -11,7 +10,7 @@ router.post('/register',registerBookController)
 router.get('/books',bookControlller)
 router.get("/single-book/:slug", singleBookController);
 
-
-
+router.get('/most-reserved-room/:startDate/:endDate', mostReservedRoomController);
+router.get('/most-reserved-teacher/:startDate/:endDate', teacherWithMostResevations)
 
 export default router
